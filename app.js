@@ -10,7 +10,7 @@ const BOLD = "\x1b[1m"
 const UNDERLINE = "\x1b[4m"
 const DIM = "\x1b[2m"
 
-const MAGENTA = "\x1b[35m"
+const MAGENTA = "\x1b[38;5;50m"
 const BGTITLE = ""
 
 // Max character length of title before cropping ...
@@ -35,7 +35,7 @@ app.get('/', async function(req, res){
       Promise.all(responses).then((content) => {
         const now = new Date();
         // Header
-        const head = `${UNDERLINE+MAGENTA}HKKR.IN/CURLME${RESET} · ${now.toUTCString()+RESET}\n` 
+        const head = `${BOLD+MAGENTA}HKKR.IN/CURLME${RESET} · ${now.toUTCString()+RESET}\n` 
         
         const linebreak = "~~~~~~~~~~~~~~\n"
 
@@ -44,12 +44,16 @@ app.get('/', async function(req, res){
         content.forEach((story, ind) => {
           let t = story.title
           const s = story.score
+          let sc = '[48;5;{ID}m'
+          const cols = [20,100,200,300,500]
+          
+          if (s > 20) {sc = ''}
 
           if(story.title.length > MAXLEN){
             t = story.title.substring(0, MAXLEN - 3) + "..."
           }
-
-          out.push(`[${BOLD+ind+RESET}▴${s}]${" ".repeat(4 - s.toString().length)+BOLD+t+RESET}\n         hkkr.in/${story.id}${RESET}\n`)
+          // Title
+          out.push(`${BOLD+(ind+1)+RESET}. ${BOLD+t+RESET}\n    ▴${s+" ".repeat(4 - s.toString().length)}➤hkkr.in/${story.id}${RESET}\n`)
         })
         // Footer
         out.push()
