@@ -5,6 +5,7 @@ const fetch = require('node-fetch-commonjs');
 
 const PORT = 3050
 
+// Colors https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#256-colors
 const RESET = "\x1b[0m"
 const BOLD = "\x1b[1m"
 const UNDERLINE = "\x1b[4m"
@@ -12,6 +13,14 @@ const DIM = "\x1b[2m"
 
 const MAGENTA = "\x1b[38;5;50m"
 const BGTITLE = ""
+
+// Vote colors
+const L1 = "\x1b[38;5;214m"
+const L2 = "\x1b[38;5;215m"
+const L3 = "\x1b[38;5;108m"
+const L4 = "\x1b[38;5;150m"
+const L5 = "\x1b[38;5;112m"
+const L6 = "\x1b[38;5;40m"
 
 // Max character length of title before cropping ...
 const MAXLEN = 80 
@@ -44,16 +53,26 @@ app.get('/', async function(req, res){
         content.forEach((story, ind) => {
           let t = story.title
           const s = story.score
-          let sc = '[48;5;{ID}m'
-          const cols = [20,100,200,300,500]
-          
-          if (s > 20) {sc = ''}
+
+          // Score color
+          let sc = L1
+          // Color ranges
+          const cols = [20,30,50,100,300,500]
+           
+          if (s > cols[0] && s < cols[1]) {sc = L2} else
+          if (s > cols[1] && s < cols[2]) {sc = L3} else
+          if (s > cols[2] && s < cols[3]) {sc = L4} else
+          if (s > cols[3] && s < cols[4]) {sc = L5} else
+          if (s > cols[4]) {sc = L6}
 
           if(story.title.length > MAXLEN){
             t = story.title.substring(0, MAXLEN - 3) + "..."
           }
           // Title
-          out.push(`${BOLD+(ind+1)+RESET}. ${BOLD+t+RESET}\n    ▴${s+" ".repeat(4 - s.toString().length)}➤hkkr.in/${story.id}${RESET}\n`)
+          out.push(`${BOLD+(ind+1)+RESET}. ${BOLD+t+RESET}${RESET}\n`)
+          // Score
+          out.push(`    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤hkkr.in/${story.id}${RESET}\n`)
+
         })
         // Footer
         out.push()
