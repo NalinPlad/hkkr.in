@@ -160,5 +160,5 @@ You can also view the discussion on Hacker News by opening the same link in a br
   `)
 });
 
-app.listen(PORT);
+app.listen(process.env.PORT || PORT);
 console.log(`${TITLE+BOLD}Listening on ${PORT+RESET}\n---\n`)
