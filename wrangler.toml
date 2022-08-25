@@ -1,4 +1,0 @@
-name = "hkkr-in"
-compatibility_date = "2022-08-23"
-node_compat = true
-main = "app.js"
