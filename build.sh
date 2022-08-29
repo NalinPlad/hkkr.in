@@ -1,4 +1,6 @@
 #!/bin/bash
+echo 'Removing old builds..'
+rm AWS-BUILD.zip
 echo 'Zipping..'
-zip AWS-BUILD.zip app.js package.json
+zip -r AWS-BUILD.zip src/ -x "*/\.*" -q
 echo 'done => AWS-BUILD.zip'
