@@ -1,5 +1,7 @@
 const fetch = require('node-fetch-commonjs');
 
+const MAXSTORIES = 100;
+
 const RESET = "\x1b[0m"
 const BOLD = "\x1b[1m"
 
@@ -33,7 +35,7 @@ module.exports = {
       .then((json) => {
         let responses = []
 
-        const ns = all ? json.length : numStories
+        const ns = all ? json.length : Math.min(numStories,MAXSTORIES)
         for(let i = 0; i < ns; i++){
           responses.push(
             fetch(URL_story + json[i] + ".json").then(res => res.json())
@@ -41,7 +43,7 @@ module.exports = {
         }
 
         Promise.all(responses).then((content) => {
-          // Sort
+          // Sort (fix later)
           if(sort){
             content.sort((a,b) => {
               console.log(a.score > b.score)
