@@ -25,7 +25,7 @@ const URL_comments = "https://news.ycombinator.com/item?id="
 const settings = { method: "Get" };
 
 module.exports = {
-  GeneratePage : function(numStories = 10, maxLength = 80){
+  GeneratePage : function(numStories, all, maxLength, sort){
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -33,21 +33,30 @@ module.exports = {
       .then((json) => {
         let responses = []
 
-        for(let i = 0; i < numStories; i++){
+        const ns = all ? json.length : numStories
+        for(let i = 0; i < ns; i++){
           responses.push(
             fetch(URL_story + json[i] + ".json").then(res => res.json())
           )
         }
 
         Promise.all(responses).then((content) => {
-          const now = new Date();
+          // Sort
+          if(sort){
+            content.sort((a,b) => {
+              console.log(a.score > b.score)
+              a.score > b.score ? 1 : -1
+            })
+          }
+
           // Header
+          const now = new Date();
           const head = `${BOLD+MAGENTA}HKKR.IN/CURLME${RESET} · ${now.toUTCString()+RESET}\n` 
           
           const linebreak = "\n"
 
           let out = [head,linebreak]
-          
+
           content.forEach((story, ind) => {
             let t = story.title
             const s = story.score
@@ -65,7 +74,7 @@ module.exports = {
             if (s > cols[4]) {sc = L6}
 
             if(story.title.length > maxLength){
-              t = story.title.substring(0, MAXLEN - 3) + "..."
+              t = story.title.substring(0, maxLength - 3) + "..."
             }
             // Title                          Ternary ♡
             out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ") +BOLD+TITLE+t+RESET}\n`)
@@ -74,7 +83,7 @@ module.exports = {
             let domain = ""
             if (story.url != undefined) domain = " (" + new URL(story.url).hostname.replace("www.","") + ")"
             
-            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL}hkkr.in/+/${story.id}${RESET+URL_C}${domain+RESET}\n`)
+            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL}hkkr.in/${story.id}${RESET+URL_C}${domain+RESET}\n`)
 
           })
         
