@@ -3,3 +3,4 @@ node_modules/
 .DS_Store
 AWS-BUILD.zip
 package-lock.json
+build.sh
