@@ -10,7 +10,7 @@ const URL_C = "\x1b[38;5;103m"
 const HKKR_URL = "\x1b[38;5;139m"
 const TITLE = "\x1b[38;5;253m"
 const TIME = "\x1b[38;5;240m"
-
+const COMMENT = "\x1b[38;5;245m"
 const HIGHLIGHT = "\x1b[48;5;220m\x1b[38;5;232m"
 
 // Vote colors
@@ -90,7 +90,7 @@ module.exports = {
           })
         
           // Footer
-          out.push(`${HIGHLIGHT}// Thanks for using hkkr.in${RESET}\n`)
+          out.push(`${BOLD+COMMENT}// Thanks for using hkkr.in${RESET}\n`)
           
          resolve(out.join(""))
         
