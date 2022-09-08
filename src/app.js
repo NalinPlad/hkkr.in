@@ -8,7 +8,7 @@ const express = require('express');
 const app = express();
 const https = require('https');
 const fetch = require('node-fetch-commonjs');
-
+const useragent = require('express-useragent');
 const PORT = 3050
 
 const URL_comments = "https://news.ycombinator.com/item?id="
@@ -33,6 +33,7 @@ let setCache = function (req, res, next) {
 // Express settings
 app.use(morgan('common'))
 app.use(setCache)
+app.use(useragent.express())
 
 
 /*
@@ -54,6 +55,9 @@ async function GetUrl(id){
 app.get('/:q?', async function(req, res){
   const opts = parser.parse(req.params.q)
   
+  if(req.useragent.browser != "curl") {
+    return res.redirect(302, "https://github.com/NalinPlad/hkkr.in");
+  }
   if(opts == "curlme"){
     res.send(curlme.response)
   } else if (opts.id && opts.id != 0){
@@ -73,5 +77,4 @@ app.get('/:q?', async function(req, res){
 
 
 app.listen(process.env.PORT || PORT);
-
 console.log(`${HIGHLIGHT}Listening on ${PORT+RESET}\n---\n`)
