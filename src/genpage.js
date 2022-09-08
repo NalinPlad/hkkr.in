@@ -27,7 +27,7 @@ const URL_comments = "https://news.ycombinator.com/item?id="
 const settings = { method: "Get" };
 
 module.exports = {
-  GeneratePage : function(numStories, all, maxLength, sort){
+  GeneratePage : function(numStories, all, maxLength, sort, disableColors){
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -35,7 +35,7 @@ module.exports = {
       .then((json) => {
         let responses = []
 
-        const ns = all ? json.length : Math.min(numStories,MAXSTORIES)
+        const ns = all ? MAXSTORIES : Math.min(numStories,MAXSTORIES)
         for(let i = 0; i < ns; i++){
           responses.push(
             fetch(URL_story + json[i] + ".json").then(res => res.json())
@@ -69,10 +69,10 @@ module.exports = {
             // Color ranges
             const cols = [20,30,50,100,300,500]
              
-            if (s > cols[0] && s < cols[1]) {sc = L2} else
-            if (s > cols[1] && s < cols[2]) {sc = L3} else
-            if (s > cols[2] && s < cols[3]) {sc = L4} else
-            if (s > cols[3] && s < cols[4]) {sc = L5} else
+            if (s > cols[0] && s <= cols[1]) {sc = L2} else
+            if (s > cols[1] && s <= cols[2]) {sc = L3} else
+            if (s > cols[2] && s <= cols[3]) {sc = L4} else
+            if (s > cols[3] && s <= cols[4]) {sc = L5} else
             if (s > cols[4]) {sc = L6}
 
             if(story.title.length > maxLength){

@@ -39,6 +39,17 @@ app.use(setCache)
  *  ROUTES
  */
 
+async function GetUrl(id){
+  return new Promise(resolve => {
+    fetch(URL_top, settings)
+      .then(res => res.json())
+      .then((json) => {
+        resolve(json.url)
+      })
+  })
+}
+
+
 // Stories / Curlme
 app.get('/:q?', async function(req, res){
   const opts = parser.parse(req.params.q)
@@ -46,9 +57,14 @@ app.get('/:q?', async function(req, res){
   if(opts == "curlme"){
     res.send(curlme.response)
   } else if (opts.id && opts.id != 0){
-    res.redirect(URL_comments + opts.id)
+    if(opts.u){
+
+      res.redirect(GetUrl(opts.id))
+    } else {
+      res.redirect(URL_comments + opts.id)
+    }
   } else {
-    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s)
+    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s,opts.w)
     res.send(page)
   }
 

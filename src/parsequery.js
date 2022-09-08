@@ -22,15 +22,17 @@ module.exports = {
       "m": 80,
       // id(for stories)
       "id": 0,
-      //sort
-      "s": false
+      // sort
+      "s": false,
+      // no color
+      "w": false
     }
     if(query == undefined){
       return options
     }
 
     if(routes.includes(query.toLowerCase())){
-      return query
+      return query.toLowerCase()
     } else if (utils.isInt(query) && query != ""){
       options["id"] = Number(query) 
     }
