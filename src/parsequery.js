@@ -20,6 +20,8 @@ module.exports = {
       "a": false,
       // max length
       "m": 80,
+      // show https
+      "h": false,
       // id(for stories)
       "id": 0,
       // sort

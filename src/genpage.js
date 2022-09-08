@@ -27,7 +27,7 @@ const URL_comments = "https://news.ycombinator.com/item?id="
 const settings = { method: "Get" };
 
 module.exports = {
-  GeneratePage : function(numStories, all, maxLength, sort, disableColors){
+  GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps){
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -84,8 +84,9 @@ module.exports = {
             // Score & urls
             let domain = ""
             if (story.url != undefined) domain = " (" + new URL(story.url).hostname.replace("www.","") + ")"
-            
-            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ https://${HKKR_URL}/${story.id}${RESET+URL_C}${domain+RESET}\n`)
+            let https_s = ""
+            if (showHttps) https_s = "https://"
+            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL+https_s}hkkr.in/${story.id}${RESET+URL_C}${domain+RESET}\n`)
 
           })
         
