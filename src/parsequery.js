@@ -26,8 +26,10 @@ module.exports = {
       "id": 0,
       // sort
       "s": false,
-      // no color
-      "w": false
+      // no color (not implemented)
+      "w": false,
+      // ignore user-agent
+      "u": false
     }
     if(query == undefined){
       return options
