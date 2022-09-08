@@ -85,7 +85,7 @@ module.exports = {
             let domain = ""
             if (story.url != undefined) domain = " (" + new URL(story.url).hostname.replace("www.","") + ")"
             
-            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL}hkkr.in/${story.id}${RESET+URL_C}${domain+RESET}\n`)
+            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ https://${HKKR_URL}/${story.id}${RESET+URL_C}${domain+RESET}\n`)
 
           })
         
