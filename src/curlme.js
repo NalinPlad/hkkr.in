@@ -48,6 +48,7 @@ You can add parameters to your request to change the behavior or hkkr.in
   n(number) => hkkr.in/n10  => number of stories to display
   m(number) => hkkr.in/m75  => max length of the title before cropping
   a         => hkkr.in/a    => display all top stories(100)
+  h         => hkkr.in/h    => show https in story urls
 ${HIGHLIGHT+BOLD}OPEN SOURCE${RESET}
 
 This project is open source on github @ https://github.com/NalinPlad/hkkr.in
