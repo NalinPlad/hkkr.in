@@ -40,7 +40,7 @@ You can pass some parameters to your request to alter the output(some parameter 
 | m(number)     | Max width of titles        |
 | a             | Show all stories(max 100)  |
 | h             | Show https:// in story urls|
-
+| u             | Ignore user-agent          |
 ## Contributing
 Want to help out? If you have any ideas, bugs, or suggestions, please open an issue [here](https://github.com/NalinPlad/hkkr.in/issues/new)
 
