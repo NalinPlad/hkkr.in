@@ -27,7 +27,7 @@ const URL_comments = "https://news.ycombinator.com/item?id="
 const settings = { method: "Get" };
 
 module.exports = {
-  GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps){
+  GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps, urlMode){
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -86,7 +86,27 @@ module.exports = {
             if (story.url != undefined) domain = " (" + new URL(story.url).hostname.replace("www.","") + ")"
             let https_s = ""
             if (showHttps) https_s = "https://"
-            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL+https_s}hkkr.in/${story.id}${RESET+URL_C}${domain+RESET}\n`)
+            let article_url = `hkkr.in/${story.id}`
+            
+            switch (urlMode){
+              case 0:
+                break
+              case 1:
+                article_url = `news.ycombinator.com/item?id=${story.id}`
+                break
+              case 2:
+                if (story.url){
+                  const urlObj = new URL(story.url)
+                  https_s = showHttps ? "" : urlObj.protocol + "//"
+                  article_url = story.url.replace(https_s, "")
+                  https_s = ""
+                  break
+                } else {
+                  article_url = `news.ycombinator.com/item?id=${story.id}`
+                }
+
+            }
+            out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL+https_s + article_url}${RESET+URL_C}${domain+RESET}\n`)
 
           })
         

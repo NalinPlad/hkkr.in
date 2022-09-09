@@ -41,6 +41,7 @@ You can pass some parameters to your request to alter the output(some parameter 
 | a             | Show all stories(max 100)  |
 | h             | Show https:// in story urls|
 | u             | Ignore user-agent          |
+| f(number)     | Url mode [0: hkkr.in, 1: HN, 2: Article Url]|
 ## Contributing
 Want to help out? If you have any ideas, bugs, or suggestions, please open an issue [here](https://github.com/NalinPlad/hkkr.in/issues/new)
 

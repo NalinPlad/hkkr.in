@@ -68,7 +68,7 @@ app.get('/:q?', async function(req, res){
       res.redirect(URL_comments + opts.id)
     }
   } else {
-    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s,opts.w,opts.h)
+    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s,opts.w,opts.h,opts.f)
     res.send(page)
   }
 

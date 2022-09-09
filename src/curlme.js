@@ -47,6 +47,7 @@ You can add parameters to your request to change the behavior or hkkr.in
 
   n(number) => hkkr.in/n10  => number of stories to display
   m(number) => hkkr.in/m75  => max length of the title before cropping
+  f(number) => hkkr.in/f2   => url mode [0: hkkr.in, 1: HN, 2: Article Url]
   a         => hkkr.in/a    => display all top stories(100)
   h         => hkkr.in/h    => show https in story urls
   u         => hkkr.in/u    => ignore user-agent

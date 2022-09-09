@@ -29,7 +29,9 @@ module.exports = {
       // no color (not implemented)
       "w": false,
       // ignore user-agent
-      "u": false
+      "u": false,
+      // Url mode
+      "f": 0,
     }
     if(query == undefined){
       return options
