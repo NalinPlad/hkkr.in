@@ -31,7 +31,7 @@ let setCache = function (req, res, next) {
 }
 
 // Express settings
-app.use(morgan('common'))
+app.use(morgan('combined'))
 app.use(setCache)
 app.use(useragent.express())
 
