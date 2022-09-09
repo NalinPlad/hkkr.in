@@ -55,7 +55,7 @@ async function GetUrl(id){
 app.get('/:q?', async function(req, res){
   const opts = parser.parse(req.params.q)
   
-  if(req.useragent.browser != "curl" && opts.u === false) {
+  if(req.useragent.browser != "curl" && opts.u === false && opts.id === 0) {
     return res.redirect(302, "https://github.com/NalinPlad/hkkr.in");
   }
   if(opts == "curlme"){
