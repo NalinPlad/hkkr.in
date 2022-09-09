@@ -38,10 +38,10 @@ You can pass some parameters to your request to alter the output(some parameter 
 | ------------- | -------------              |
 | n(number)     | Number of results to show(max 100) |
 | m(number)     | Max width of titles        |
+| f(number)     | Url mode [0: hkkr.in, 1: HN, 2: Article Url]|
 | a             | Show all stories(max 100)  |
 | h             | Show https:// in story urls|
 | u             | Ignore user-agent          |
-| f(number)     | Url mode [0: hkkr.in, 1: HN, 2: Article Url]|
 ## Contributing
 Want to help out? If you have any ideas, bugs, or suggestions, please open an issue [here](https://github.com/NalinPlad/hkkr.in/issues/new)
 
@@ -50,12 +50,12 @@ If you want to help develop the project, feel free to open a pull request. When 
 I wrote most of the code here quickly and its not the greatest. I may come in and refactor some of it in the future.
 
 ## ToDo
-Planned features
+Some planned features
 
 - [ ] Check user agent to serve an html version in the browser
 - [ ] Option to disable ANSI escapes incase a terminal emulator doesent support them
 - [ ] Show date on posts(EG: 4 days ago)
 - [ ] Option to sort by date
-- [ ] Option to make hkkr.in/{ID} links go directly to url not discussion
+- [x] Option to make hkkr.in/{ID} links go directly to url not discussion
 
 ###### // Thanks for using hkkr.in
