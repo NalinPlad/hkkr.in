@@ -14,6 +14,11 @@
 
 ---
 
+
+<a href="https://www.producthunt.com/posts/hkkr-in?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hkkr&#0045;in" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=359115&theme=light" alt="HKKR&#0046;IN - cURL&#0032;client&#0032;for&#0032;Hacker&#0032;News | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+
+
 Hkkr.in is a [Curl](https://github.com/curl/curl) client for [Hacker News](https://news.ycombinator.com/)</br></br>
 I spend a lot of time in the terminal, and also lots of time on HN, so I made hkkr.in to make viewing HN in the terminal simple and accessible from any computer, not just ones that have [HN CLI](https://github.com/search?q=Hacker+News+CLI) programs installed. I was inspired by the [wttr.in](https://github.com/chubin/wttr.in) which does a similar thing for the weather and for moon phases
 
