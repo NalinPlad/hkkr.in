@@ -35,7 +35,7 @@ A single result might look like this
 ➥    ▴646 ➤ hkkr.in/32735479 (bitwarden.com)
 ```
 
-It shows the title, votes, link to the discussion, and the domain of the url. Use the link on the bottom ([hkkr.in/32735479](hkkr.in/32735479)) to visit that articles page on HN
+It shows the title, votes, link to the discussion, and the domain of the url. Use the link on the bottom ([hkkr.in/32735479](https://hkkr.in/32735479)) to visit that articles page on HN
 
 You can pass some parameters to your request to alter the output(some parameter accept numbers as options, like `curl hkkr.in/n10`)
 
