@@ -37,7 +37,7 @@ A single result might look like this
 
 It shows the title, votes, link to the discussion, and the domain of the url. Use the link on the bottom ([hkkr.in/32735479](https://hkkr.in/32735479)) to visit that articles page on HN
 
-You can pass some parameters to your request to alter the output(some parameter accept numbers as options, like `curl hkkr.in/n10`)
+You can pass some parameters to your request to alter the output(some parameters accept numbers as options, like `curl hkkr.in/n10`)
 
 | Parameter     | Function                   |
 | ------------- | -------------              |
@@ -47,6 +47,8 @@ You can pass some parameters to your request to alter the output(some parameter 
 | a             | Show all stories(max 100)  |
 | h             | Show https:// in story urls|
 | u             | Ignore user-agent          |
+
+seperate parameters with a dash `curl hkkr.in/n5-f2`
 ## Contributing
 Want to help out? If you have any ideas, bugs, or suggestions, please open an issue [here](https://github.com/NalinPlad/hkkr.in/issues/new)
 
