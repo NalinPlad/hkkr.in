@@ -59,8 +59,8 @@ I wrote most of the code here quickly and its not the greatest. I may come in an
 ## ToDo
 Some planned features
 
-- [ ] Check user agent to serve an html version in the browser
-- [ ] Option to disable ANSI escapes incase a terminal emulator doesent support them
+- [ ] Check user agent to serve an html version in the browser (redirects to github right now)
+- [ ] Option to disable ANSI escapes in case a terminal emulator doesent support them
 - [ ] Show date on posts(EG: 4 days ago)
 - [ ] Option to sort by date
 - [x] Option to make hkkr.in/{ID} links go directly to url not discussion
