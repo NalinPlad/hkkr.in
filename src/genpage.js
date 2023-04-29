@@ -12,6 +12,7 @@ const TITLE = "\x1b[38;5;253m"
 const TIME = "\x1b[38;5;240m"
 const COMMENT = "\x1b[38;5;245m"
 const HIGHLIGHT = "\x1b[48;5;220m\x1b[38;5;232m"
+const HYPER = (url, text) => `\x1b]8;;${url}\x1b\\${text}\x1b[0m\x1b]8;;\x1b\\`;
 
 // Vote colors
 const L1 = "\x1b[38;5;214m"
@@ -27,7 +28,8 @@ const URL_comments = "https://news.ycombinator.com/item?id="
 const settings = { method: "Get" };
 
 module.exports = {
-  GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps, urlMode){
+  GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps, urlMode, useHyperlinks){
+  console.log(HYPER("https://www.google.com", "google site"))
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -78,8 +80,9 @@ module.exports = {
             if(story.title.length > maxLength){
               t = story.title.substring(0, maxLength - 3) + "..."
             }
-            // Title                          Ternary ♡
-            out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ") +BOLD+TITLE+t+RESET}\n`)
+            // Title
+            out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ")+BOLD+TITLE+(useHyperlinks ? HYPER(story.url,t) : t)+RESET}\n`)
+
             
             // Score & urls
             let domain = ""

@@ -32,6 +32,8 @@ module.exports = {
       "u": false,
       // Url mode
       "f": 0,
+      // Use hyperlinks
+      "l": false,
     }
     if(query == undefined){
       return options

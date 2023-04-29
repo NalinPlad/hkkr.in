@@ -9,6 +9,7 @@ const HIGHLIGHT = "\x1b[48;5;220m\x1b[38;5;232m"
 const HIGHLIGHT_P = "\x1b[48;5;200m\x1b[38;5;232m"
 const BLACK_HIGHLIGHT = "\x1b[48;5;232m"
 const HKKR_URL = "\x1b[38;5;139m"
+const HYPER = (url, text) => `\x1b]8;;${url}\x1b\\${text}\x1b[0m\x1b]8;;\x1b\\`;
 
 module.exports = {
    response: 
@@ -51,6 +52,7 @@ You can add parameters to your request to change the behavior or hkkr.in
   a         => hkkr.in/a    => display all top stories(100)
   h         => hkkr.in/h    => show https in story urls
   u         => hkkr.in/u    => ignore user-agent
+  l         => hkkr.in/l    => use ${HYPER("", "hyperlinks")}(requires modern terminal)
 ${HIGHLIGHT+BOLD}OPEN SOURCE${RESET}
 
 This project is open source on github @ https://github.com/NalinPlad/hkkr.in

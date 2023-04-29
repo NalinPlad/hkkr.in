@@ -62,13 +62,13 @@ app.get('/:q?', async function(req, res){
     res.send(curlme.response)
   } else if (opts.id && opts.id != 0){
     if(opts.u){
-
       res.redirect(GetUrl(opts.id))
     } else {
       res.redirect(URL_comments + opts.id)
     }
   } else {
-    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s,opts.w,opts.h,opts.f)
+    const page = await gp.GeneratePage(opts.n,opts.a,opts.m,opts.s,opts.w,opts.h,opts.f,opts.l)
+    console.log(opts)
     res.send(page)
   }
 
