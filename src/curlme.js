@@ -52,7 +52,7 @@ You can add parameters to your request to change the behavior or hkkr.in
   a         => hkkr.in/a    => display all top stories(100)
   h         => hkkr.in/h    => show https in story urls
   u         => hkkr.in/u    => ignore user-agent
-  l         => hkkr.in/l    => use ${HYPER("", "hyperlinks")}(requires modern terminal)
+  l         => hkkr.in/l    => use ${HYPER("https://github.com/NalinPlad/hkkr.in#hyperlinks", "hyperlinks")}(requires modern terminal)
 ${HIGHLIGHT+BOLD}OPEN SOURCE${RESET}
 
 This project is open source on github @ https://github.com/NalinPlad/hkkr.in
