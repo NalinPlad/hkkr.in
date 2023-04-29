@@ -48,6 +48,7 @@ You can pass some parameters to your request to alter the output(some parameters
 | h             | Show https:// in story urls|
 | u             | Ignore user-agent          |
 | l             | Use [hyperlinks](#hyperlinks)(requires modern terminal)|
+
 seperate parameters with a dash `curl hkkr.in/n5-f2`
 
 ## Hyperlinks
