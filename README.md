@@ -52,10 +52,9 @@ seperate parameters with a dash `curl hkkr.in/n5-f2`
 
 ## Hyperlinks
 > Use the `l` parameter to enable modern terminal hyperlinks
+
 Hkkr.in supports [modern terminal](https://github.com/Alhadis/OSC8-Adoption/) emulator [hyperlinks](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda). By default, hyperlinks have a small underline present, which is is visually distracting. You can disable it, though the configurations are dependant on your specific terminal emulator. Here are instructions for [Iterm2](https://gitlab.com/gnachman/iterm2/-/issues/7969#note_198060691), and you can probably find similar config settings for your terminal.
 
-
-seperate parameters with a dash `curl hkkr.in/n5-f2`
 ## Contributing
 Want to help out? If you have any ideas, bugs, or suggestions, please open an issue [here](https://github.com/NalinPlad/hkkr.in/issues/new)
 
