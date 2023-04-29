@@ -10,7 +10,7 @@
 
 </p>
 
-<p align=center><a href="#usage">Usage</a> • <p align=center><a href="#hyperlinks">Hyperlinks</a> • <a href="#contributing">Contributing</a> • <a href="#todo">ToDo</a></p>
+<p align=center><a href="#usage">Usage</a> • <a href="#hyperlinks">Hyperlinks</a> • <a href="#contributing">Contributing</a> • <a href="#todo">ToDo</a></p>
 
 ---
 
