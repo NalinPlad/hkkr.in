@@ -29,7 +29,6 @@ const settings = { method: "Get" };
 
 module.exports = {
   GeneratePage : function(numStories, all, maxLength, sort, disableColors, showHttps, urlMode, useHyperlinks){
-  console.log(HYPER("https://www.google.com", "google site"))
   return new Promise(resolve => {
 
     fetch(URL_top, settings)
@@ -81,7 +80,8 @@ module.exports = {
               t = story.title.substring(0, maxLength - 3) + "..."
             }
             // Title
-            out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ")+BOLD+TITLE+(useHyperlinks ? HYPER(story.url,t) : t)+RESET}\n`)
+            const titleurl = story.url ? story.url : "https://news.ycombinator.com/item?id="+story.id;
+            out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ")+BOLD+TITLE+(useHyperlinks ? HYPER(titleurl,t) : t)+RESET}\n`)
 
             
             // Score & urls
