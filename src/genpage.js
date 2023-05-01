@@ -80,7 +80,7 @@ module.exports = {
               t = story.title.substring(0, maxLength - 3) + "..."
             }
             // Title
-            const titleurl = story.url ? story.url : "https://news.ycombinator.com/item?id="+story.id;
+            const titleurl = story.url ? story.url : URL_comments+story.id;
             out.push(`${(ind+1)}. ${(ind+1 > 9 ? "" : " ")+BOLD+TITLE+(useHyperlinks ? HYPER(titleurl,t) : t)+RESET}\n`)
 
             
@@ -90,25 +90,30 @@ module.exports = {
             let https_s = ""
             if (showHttps) https_s = "https://"
             let article_url = `hkkr.in/${story.id}`
-            
-            switch (urlMode){
-              case 0:
-                break
-              case 1:
-                article_url = `news.ycombinator.com/item?id=${story.id}`
-                break
-              case 2:
-                if (story.url){
-                  const urlObj = new URL(story.url)
-                  https_s = showHttps ? "" : urlObj.protocol + "//"
-                  article_url = story.url.replace(https_s, "")
-                  https_s = ""
-                  break
-                } else {
-                  article_url = `news.ycombinator.com/item?id=${story.id}`
-                }
 
+            if(useHyperlinks){
+              // Generate hyperlink of stories comments url. The text is the number of comments
+              article_url = HYPER(URL_comments+story.id, (story.descendants ? story.descendants : "0") + " comments")
+            } else {
+              switch (urlMode){
+                case 0:
+                  break
+                case 1:
+                  article_url = `news.ycombinator.com/item?id=${story.id}`
+                  break
+                case 2:
+                  if (story.url){
+                    const urlObj = new URL(story.url)
+                    https_s = showHttps ? "" : urlObj.protocol + "//"
+                    article_url = story.url.replace(https_s, "")
+                    https_s = ""
+                    break
+                  } else {
+                    article_url = `news.ycombinator.com/item?id=${story.id}`
+                  }
+              }
             }
+            
             out.push(`${BOLD}➥${RESET}    ▴${sc+s+RESET+" ".repeat(4 - s.toString().length)}➤ ${HKKR_URL+https_s + article_url}${RESET+URL_C}${domain+RESET}\n`)
 
           })
