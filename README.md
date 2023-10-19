@@ -17,6 +17,8 @@
 
 <a href="https://www.producthunt.com/posts/hkkr-in?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hkkr&#0045;in" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=359115&theme=light" alt="HKKR&#0046;IN - cURL&#0032;client&#0032;for&#0032;Hacker&#0032;News | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
+> hkkr.in is offline until further notice while I work on other projects (I need to migrate it off AWS so until I do that, it remains offline)
+
 
 
 Hkkr.in is a [Curl](https://github.com/curl/curl) client for [Hacker News](https://news.ycombinator.com/)</br></br>
